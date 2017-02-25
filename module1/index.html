@@ -10,19 +10,22 @@
     </style>
   </head>
 <body ng-app="LunchCheck">
-  <div class="container" ng-controller="LunchCheckController as vm">
+  <div class="container" ng-controller="LunchCheckController">
     <h1>Lunch Checker</h1>
     <div class="form-group">
       <input id="lunch-menu"
              type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control"
+             ng-model="lunchItems"
+             autofocus>
     </div>
+    <div class="alert alert-info">Empty elements will not be counted</div>
     <div class="form-group">
-      <button class="btn btn-default">Check If Too Much</button>
+      <button class="btn btn-default" ng-click="checkQty()">Check If Too Much</button>
     </div>
-    <div class="form-group message">
-      {{vm.userMessage}}
+    <div class="alert" ng-class="messageType">
+      <strong>{{userMessage}}</strong>
     </div>
   </div>
   <script src="../js/angular.min.js"></script>
