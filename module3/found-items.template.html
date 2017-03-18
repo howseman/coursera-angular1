@@ -1,0 +1,22 @@
+<div class="row" ng-if="d.listItems.length > 0">
+  <div class="col-xs-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Short Name</th>
+          <th>Description</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in d.listItems">
+          <td>{{item.name}}</td>
+          <td>{{item.short_name}}</td>
+          <td>{{item.description}}</td>
+          <td><button class="btn btn-success" ng-click="d.removeItem({itemIndex: $index})">Don't want this one!</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
