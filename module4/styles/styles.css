@@ -58,11 +58,19 @@ input[type="text"] {
 }
 .categories .list li {
   list-style-type: none;
+  padding: 3px 5px;
+}
+.categories .list li a {
+  display: block;
 }
 
 .category-items {
 
 }
 .active {
+  background-color: lightgray;
   font-weight: bold;
+}
+a:visited, a:hover, a:active, a:link {
+  text-decoration: none;
 }
