@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      <h4>Available categories</h4>
+      <div class="categories">
+        <ul class="list">
+          <li ng-repeat="category in vm.categories" ui-sref-active="active">
+            <a ui-sref="categories.items({short_name: category.short_name})">{{category.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-8 col-md-9">
+      <h4>Menu Items</h4>
+      <div class="category-items">
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+</div>
