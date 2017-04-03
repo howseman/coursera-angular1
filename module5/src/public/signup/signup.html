@@ -1,0 +1,73 @@
+<div class="signup-form">
+  <h2 class="text-center">Newsletter sign up</h2>
+  <div class="separator"></div>
+  <form name="registerForm" novalidate>
+    <div class="form-group">
+      <label>First Name: *</label>
+      <input type="text" class="form-control"
+             name="firstName"
+             ng-model="vm.user.firstName"
+             minlength="2"
+             required>
+      <div ng-if="(registerForm.firstName.$error.minlength || registerForm.firstName.$error.required) && registerForm.firstName.$touched"
+           class="form-validation-error-label">
+        First name must be at least 2 characters long
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Last Name: *</label>
+      <input type="text" class="form-control"
+             name="lastName"
+             ng-model="vm.user.lastName"
+             minlength="2"
+             required>
+      <div ng-if="(registerForm.lastName.$error.minlength || registerForm.lastName.$error.required) && registerForm.lastName.$touched"
+           class="form-validation-error-label">
+        Last name must be at least 2 characters long
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email: *</label>
+      <input type="email" class="form-control"
+             name="email"
+             ng-model="vm.user.email"
+             required>
+      <div ng-if="(registerForm.email.$error.email || registerForm.email.$error.required) && registerForm.email.$touched"
+           class="form-validation-error-label">
+        Please enter a valid email address
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone Number: *</label>
+      <input type="text" class="form-control"
+             name="phoneNumber"
+             ng-model="vm.user.phoneNumber"
+             minlength="6"
+             required>
+      <div ng-if="(registerForm.phoneNumber.$error.minlength || registerForm.phoneNumber.$error.required) && registerForm.phoneNumber.$touched"
+           class="form-validation-error-label">
+        Please enter a valid phone number
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Favorite Dish:</label>
+      <input type="text" class="form-control"
+             name="shortName"
+             ng-model="vm.shortName"
+             ng-change="vm.shortName = vm.shortName.toUpperCase()"
+             required>
+      <div ng-if="vm.shortNameError" class="form-validation-error-label">
+        {{vm.shortNameError}}
+      </div>
+    </div>
+    <div class="separator"></div>
+    <button type="submit" class="btn btn-success btn-block"
+            ng-click="vm.register()"
+            ng-if="!vm.successMessage"
+            ng-disabled="registerForm.$invalid">Register</button>
+    <a class="btn btn-block btn-primary"
+         ng-if="vm.successMessage"
+         ui-sref="public.user"
+         ng-bind="vm.successMessage"></a>
+  </form>
+</div>
